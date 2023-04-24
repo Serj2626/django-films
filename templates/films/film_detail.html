@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Название фильма: {{ film.title }}</h2>
+<p>Описание фильма: {{ film.description }}</p>
+<p>
+    {% for direction in film.directions.all %}
+        {{ direction.name }}
+    {% endfor %}
+</p>
+<p>
+    {% for genre in film.genre.all %}
+        {{ genre.name }}
+    {% endfor %}
+</p>
+<p>Постер фильма:</p>
+<img src="{{ film.image.url }}" width="200">
+
+</body>
+</html>
