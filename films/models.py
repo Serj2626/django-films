@@ -4,7 +4,7 @@ from django.db import models
 class Genre(models.Model):
     name = models.CharField('Название жанра', max_length=50)
     description = models.TextField('Описание', blank=True)
-    url = models.SlugField(max_length=50, queue=True)
+    url = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):
         return self.name
