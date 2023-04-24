@@ -7,3 +7,6 @@ class Film(models.Model):
     imag = models.ImageField(upload_to='image/%Y')
     description = models.TextField(blank=True)
     date_publ = models.DateField('Дата выхода')
+
+    def __str__(self):
+        return self.title
