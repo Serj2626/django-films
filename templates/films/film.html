@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for film in films_list %}
+    <h2>Название фильма: {{ film.title }}</h2>
+    <p>Описание фильма: {{ film.description }}</p>
+    <p>Постер фильма</p>
+    <img src="{{ film.image.url }}" width="200">
+{% endfor %}
+</body>
+</html>

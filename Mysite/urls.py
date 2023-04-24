@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', admin.site.urls),
+    path('', include('films.urls')),
 ]
 
 if settings.DEBUG:
