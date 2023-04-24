@@ -6,7 +6,8 @@
 </head>
 <body>
 {% for film in films_list %}
-    <h2>Название фильма: {{ film.title }}</h2>
+    <h2><a href="/{{ film.url }}/"> {{ film.title }}</a></h2>
+
     <p>Описание фильма: {{ film.description }}</p>
     <p>
         {% for direction in film.directions.all %}
