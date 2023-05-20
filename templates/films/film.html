@@ -46,11 +46,17 @@
                         <!-- Main Menu Begin -->
                         <div class="main-menu d-flex align-items-center justify-content-end">
                             <ul class="nav align-items-center ">
-                                <li class="current-menu-parent menu-item-has-children" >
+                                <li class="current-menu-parent menu-item-has-children">
                                     <a href="{% url 'home' %}">Главная</a>
                                 </li>
                                 <li class="menu-item-has-children">
-                                    <a href="/admin">Авторизация</a>
+                                    {% if user.is_authenticated %}
+                                        <p>Привет {{ user.username }}<a
+                                                href="{% url 'logout' %}">Выход</a></p>
+
+                                    {% else %}
+                                        <a href="{% url 'login' %}">Авторизация</a>
+                                    {% endif %}
                                 </li>
 
                             </ul>

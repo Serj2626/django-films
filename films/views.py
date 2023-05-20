@@ -25,5 +25,9 @@ class AddReview(View):
 
     def post(self, request, pk):
         form = ReviewsForm(request.POST)
+        film = Film.objects.get(id=pk)
         if form.is_valid():
             form = form.save(commit=False)
+            form.film = film
+            form.save()
+        return redirect(film.get_absolute_url())

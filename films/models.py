@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Genre(models.Model):
@@ -39,6 +40,9 @@ class Film(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('film_detail', kwargs={'slug': self.url})
 
     class Meta:
         verbose_name = 'Фильм'
