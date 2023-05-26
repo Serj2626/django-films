@@ -51,11 +51,13 @@
                                 </li>
                                 <li class="menu-item-has-children">
                                     {% if user.is_authenticated %}
-                                        <p>Привет {{ user.username }}<a
-                                                href="{% url 'logout' %}">Выход</a></p>
-
+                                        <p>Привет {{ user.username }}</p>
+                                        <li class="menu-item-has-children"><a href="{% url 'logout' %}">Выход</a></li>
                                     {% else %}
-                                        <a href="{% url 'login' %}">Авторизация</a>
+                                        <li class="menu-item-has-children"><a href="{% url 'signup' %}">Регистрация</a>
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="{% url 'login' %}">Авторизация</a>
+                                        </li>
                                     {% endif %}
                                 </li>
 

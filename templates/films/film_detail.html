@@ -45,21 +45,24 @@
                 <div class="col-lg-9 col-sm-8 col-4">
                     <!-- Main Menu Begin -->
                     <div class="main-menu d-flex align-items-center justify-content-end">
-                        <ul class="nav align-items-center ">
-                            <li class="current-menu-parent menu-item-has-children">
-                                <a href="{% url 'home' %}">Главная</a>
-                            </li>
-                            <li class="menu-item-has-children">
-                                {% if user.is_authenticated %}
-                                    <p>Привет {{ user.username }} <a
-                                            href="{% url 'logout' %}">Выход</a></p>
+                                   <div class="main-menu d-flex align-items-center justify-content-end">
+                            <ul class="nav align-items-center ">
+                                <li class="current-menu-parent menu-item-has-children">
+                                    <a href="{% url 'home' %}">Главная</a>
+                                </li>
+                                <li class="menu-item-has-children">
+                                    {% if user.is_authenticated %}
+                                        <p>Привет {{ user.username }}</p>
+                                        <li class="menu-item-has-children"><a href="{% url 'logout' %}">Выход</a></li>
+                                    {% else %}
+                                        <li class="menu-item-has-children"><a href="{% url 'signup' %}">Регистрация</a>
+                                        </li>
+                                        <li class="menu-item-has-children"><a href="{% url 'login' %}">Авторизация</a>
+                                        </li>
+                                    {% endif %}
+                                </li>
 
-                                {% else %}
-                                    <a href="{% url 'login' %}">Авторизация</a>
-                                {% endif %}
-                            </li>
-
-                        </ul>
+                            </ul>
 
                     </div>
                     <!-- Main Menu ENd -->
